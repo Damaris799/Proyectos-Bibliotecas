@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Nuevo Lector</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5; /* Gris claro para el fondo de la página */
+        }
+        .container {
+            background-color: #ffffff; /* Fondo blanco para el contenedor */
+            border: 1px solid #d1d1d1; /* Borde gris claro */
+            border-radius: 0.5rem; /* Bordes redondeados */
+            padding: 2rem; /* Espaciado interno del contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del contenedor */
+        }
+        h1 {
+            color: #333; /* Gris oscuro para el título */
+            margin-bottom: 1.5rem; /* Espaciado inferior del título */
+        }
+        .form-label {
+            color: #333; /* Gris oscuro para las etiquetas de formulario */
+        }
+        .btn-primary {
+            color: #fff; /* Texto blanco para el botón de guardar */
+            background-color: #000; /* Fondo negro para el botón de guardar */
+            border-color: #000; /* Borde negro para el botón de guardar */
+        }
+        .btn-primary:hover {
+            background-color: #333; /* Fondo gris oscuro al pasar el ratón por encima */
+            border-color: #333; /* Borde gris oscuro al pasar el ratón por encima */
+        }
+        .btn-secondary {
+            color: #fff; /* Texto blanco para el botón de regresar */
+            background-color: #6c757d; /* Fondo gris oscuro para el botón de regresar */
+            border-color: #6c757d; /* Borde gris oscuro para el botón de regresar */
+        }
+        .btn-secondary:hover {
+            background-color: #495057; /* Fondo gris más oscuro al pasar el ratón por encima */
+            border-color: #495057; /* Borde gris más oscuro al pasar el ratón por encima */
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div layout:fragment="content">
+        <h1 class="mb-4">Crear Nuevo Lector</h1>
+
+        <form th:action="@{/Lectores/save}" th:object="${lector}" method="post">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Escriba el nombre del lector" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" th:field="*{apellido}" id="apellido" placeholder="Escriba el apellido del lector" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" th:field="*{email}" id="email" placeholder="Escriba el correo electrónico del lector" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" th:field="*{telefono}" id="telefono" placeholder="Escriba el teléfono del lector">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-start" style="gap: 2rem;">
+                <button type="submit" class="btn btn-primary">Guardar</button> |
+                <a th:href="@{/Lectores}" class="btn btn-secondary">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

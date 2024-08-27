@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Lector</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5; /* Gris claro para el fondo de la página */
+        }
+        .container {
+            background-color: #ffffff; /* Fondo blanco para el contenedor del formulario */
+            border: 1px solid #d1d1d1; /* Borde gris claro */
+            border-radius: 0.5rem; /* Bordes redondeados */
+            padding: 2rem;
+        }
+        .form-label {
+            color: #333; /* Gris oscuro para las etiquetas */
+        }
+        .form-control {
+            border-color: #d1d1d1; /* Borde gris claro para los campos de texto */
+            border-radius: 0.25rem; /* Bordes redondeados para los campos de texto */
+        }
+        .form-control:focus {
+            border-color: #333; /* Borde gris oscuro en el foco */
+            box-shadow: none; /* Quitar la sombra del campo en el foco */
+        }
+        .btn-primary {
+            background-color: #000; /* Negro para el fondo del botón de guardar cambios */
+            border-color: #000; /* Negro para el borde del botón de guardar cambios */
+            color: #fff; /* Blanco para el texto del botón de guardar cambios */
+        }
+        .btn-primary:hover {
+            background-color: #333; /* Gris oscuro al pasar el ratón por encima */
+            border-color: #333; /* Gris oscuro para el borde al pasar el ratón por encima */
+        }
+        .btn-secondary {
+            background-color: #6c757d; /* Gris oscuro para el fondo del botón de regresar */
+            border-color: #6c757d; /* Gris oscuro para el borde del botón de regresar */
+            color: #fff; /* Blanco para el texto del botón de regresar */
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Gris más oscuro al pasar el ratón por encima */
+            border-color: #5a6268; /* Gris más oscuro para el borde al pasar el ratón por encima */
+        }
+    </style>
+
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Editar Lector</h1>
+
+    <form th:action="@{/Lectores/save}" th:object="${lector}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Escriba el nombre del lector" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" th:field="*{apellido}" id="apellido" placeholder="Escriba el apellido del lector" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" th:field="*{email}" id="email" placeholder="Escriba el correo electrónico del lector" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" th:field="*{telefono}" id="telefono" placeholder="Escriba el teléfono del lector (opcional)">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-start" style="gap: 2rem;">
+            <button type="submit" class="btn btn-primary">Guardar cambios</button> |
+            <a th:href="@{/Lectores}" class="btn btn-secondary">Regresar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

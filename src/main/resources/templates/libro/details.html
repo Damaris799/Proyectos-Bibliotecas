@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Libro</title>
+    <!-- Enlace a Bootstrap 4 para estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos personalizados */
+        body {
+            background-color: #f5f5f5; /* Gris claro para el fondo de la página */
+        }
+        .container {
+            background-color: #ffffff; /* Fondo blanco para el contenedor */
+            border: 1px solid #d1d1d1; /* Borde gris claro */
+            border-radius: 0.5rem; /* Bordes redondeados */
+            padding: 2rem; /* Espaciado interno del contenedor */
+        }
+        h1 {
+            color: #333; /* Gris oscuro para el título */
+        }
+        dt {
+            color: #333; /* Gris oscuro para las etiquetas de definición */
+        }
+        dd {
+            color: #666; /* Gris medio para los valores de definición */
+        }
+        .btn-outline-info {
+            color: #fff; /* Texto blanco para el botón de editar */
+            background-color: #000; /* Fondo negro para el botón de editar */
+            border-color: #000; /* Borde negro para el botón de editar */
+        }
+        .btn-outline-info:hover {
+            background-color: #333; /* Fondo gris oscuro al pasar el ratón por encima */
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            border-color: #333; /* Borde gris oscuro al pasar el ratón por encima */
+        }
+        .btn-outline-secondary {
+            color: #fff; /* Texto blanco para el botón de regresar */
+            background-color: #6c757d; /* Fondo gris oscuro para el botón de regresar */
+            border-color: #6c757d; /* Borde gris oscuro para el botón de regresar */
+        }
+        .btn-outline-secondary:hover {
+            background-color: #495057; /* Fondo gris más oscuro al pasar el ratón por encima */
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            border-color: #495057; /* Borde gris más oscuro al pasar el ratón por encima */
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Detalles del Libro</h1>
+    <div>
+        <hr />
+        <!-- Lista de definición para los detalles del libro -->
+        <dl class="row">
+            <dt class="col-sm-2">ID</dt>
+            <dd class="col-sm-10" th:text="${libro.id}"></dd>
+
+            <dt class="col-sm-2">Nombre</dt>
+            <dd class="col-sm-10" th:text="${libro.nombre}"></dd>
+
+            <dt class="col-sm-2">Autor</dt>
+            <dd class="col-sm-10" th:text="${libro.autor}"></dd>
+
+            <dt class="col-sm-2">Editorial</dt>
+            <dd class="col-sm-10" th:text="${libro.editorial}"></dd>
+
+            <dt class="col-sm-2">Año Publicado</dt>
+            <dd class="col-sm-10" th:text="${libro.anioPublicado}"></dd>
+        </dl>
+
+        <!-- Botones para editar o regresar -->
+        <a th:href="@{/Libros/edit/{id}(id=${libro.id})}" class="btn btn-outline-info">Editar</a>
+        <a th:href="@{/Libros}" class="btn btn-outline-secondary">Regresar</a>
+    </div>
+</div>
+
+<!-- Enlaces a jQuery y Bootstrap JS para funcionalidad adicional -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
