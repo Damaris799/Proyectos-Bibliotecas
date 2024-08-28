@@ -18,9 +18,14 @@ public class Rol {
 
     public void setId(Integer id) {this.id = id;}
 
-    public  @NotBlank(message = "Nombre es requerido") String getNombre() {return nombre; }
+    public  @NotBlank(message = "Nombre es requerido") String getNombre() {
+        return nombre;
+    }
 
-    public  void setNombre(@NotBlank(message = "Nombre es requerido") String nombre) {this.nombre = nombre; }
+    public  void setNombre(@NotBlank(message = "Nombre es requerido") String nombre) {
+        this.nombre = nombre;
+    }
+
 }
 
 
