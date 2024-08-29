@@ -13,5 +13,7 @@ public interface ILibroServices {
     Libro crearOEditar(Libro libro);
     Optional<Libro> buscarPorId(Integer id);
     void eliminarPorId(Integer id);
+    int obtenerTotalLibros();
+
 }
 

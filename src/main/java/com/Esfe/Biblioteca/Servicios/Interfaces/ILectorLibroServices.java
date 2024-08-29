@@ -14,5 +14,7 @@ public interface ILectorLibroServices {
     LectorLibro crearOeditar(LectorLibro lectorLibro);
     Optional<LectorLibro> buscarPorId(Integer id);
     void eliminarPorId(Integer id);
+    int obtenerTotalPrestamos();
+
 }
 

@@ -13,5 +13,6 @@ public interface ILectorServices {
     Lector crearOEditar(Lector lector);
     Optional<Lector> buscarPorId(Integer id);
     void eliminarPorId(Integer id);
+    int obtenerTotalLectores();
 }
 

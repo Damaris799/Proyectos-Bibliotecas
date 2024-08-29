@@ -41,5 +41,10 @@ public class LectorServices implements ILectorServices {
     public void eliminarPorId(Integer id) {
         lectorRepository.deleteById(id);
     }
+
+    @Override
+    public int obtenerTotalLectores() {
+        return (int) lectorRepository.count();
+    }
 }
 

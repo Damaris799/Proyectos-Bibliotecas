@@ -1,82 +1,47 @@
-<!DOCTYPE html>
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="/layouts/_mainLayout">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <style>
-        /* General */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333; /* Gris oscuro para el texto */
-            background-color: #f4f4f4; /* Gris muy claro para el fondo */
-        }
+      layout:decorate="/layouts/_mainLayout"  xmlns:th="http://www.thymeleaf.org">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        .header {
-            background-color: #000; /* Negro */
-            color: #fff; /* Blanco */
-            padding: 15px; /*  tamaño de fuente más pequeño */
-            text-align: center;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 20px; /* Tamaño de fuente reducido para el header */
-        }
-
-        /* Main Content */
-        .main-content {
-            background-color: #fff; /* Blanco */
-            padding: 30px; /* Reducido para ajustar al tamaño de la fuente */
-            text-align: center;
-            border-radius: 0 0 5px 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
-
-        .main-content h2 {
-            margin: 0;
-            font-size: 22px; /* Tamaño de fuente reducido para el contenido principal */
-            color: #333; /* Gris oscuro */
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #333; /* Gris oscuro */
-            color: #fff; /* Blanco */
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-radius: 0 0 5px 5px;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 14px; /* Tamaño de fuente pequeño para el footer */
-        }
-    </style>
-</head>
-<body>
 <div layout:fragment="content">
-    <div class="container">
-        <header class="header">
-            <h1>Starter Page</h1>
-        </header>
-        <main class="main-content">
-            <h2>Bienvenido</h2>
-        </main>
+
+    <h1>Contenido </h1>
+
+    <!-- Total de Libros -->
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-book"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Total de Libros</span>
+                <span class="info-box-number" th:text="${totalLibros}"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Total de Lectores -->
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Total de Lectores</span>
+                <span class="info-box-number" th:text="${totalLectores}"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Total de Prestamos -->
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-book-reader"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Total de Préstamos</span>
+                <span class="info-box-number" th:text="${totalPrestamos}"></span>
+            </div>
+        </div>
     </div>
 </div>
-</body>
+<!-- /.row -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+</div>
 </html>

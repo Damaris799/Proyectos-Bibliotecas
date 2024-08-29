@@ -41,5 +41,10 @@ public class LibroServices implements ILibroServices {
     public void eliminarPorId(Integer id) {
         libroRepository.deleteById(id);
     }
+
+    @Override
+    public int obtenerTotalLibros() {
+        return (int) libroRepository.count();
+    }
 }
 
