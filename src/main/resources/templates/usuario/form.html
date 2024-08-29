@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Usuario</title>
+</head>
+<body>
+<h1 th:if="${usuario.id} != null">Editar Usuario</h1>
+<h1 th:if="${usuario.id} == null">Nuevo Usuario</h1>
+<form th:action="@{/usuarios}" th:object="${usuario}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Login: <input type="text" th:field="*{login}" /><br/>
+    Clave: <input type="password" th:field="*{clave}" /><br/>
+    Status: <input type="number" th:field="*{status}" /><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a href="/usuarios">Volver</a>
+</body>
+</html>

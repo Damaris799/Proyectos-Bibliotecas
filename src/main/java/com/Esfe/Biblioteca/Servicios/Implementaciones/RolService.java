@@ -4,10 +4,12 @@ import com.Esfe.Biblioteca.Entidades.Rol;
 import com.Esfe.Biblioteca.Repositorios.IRolRepository;
 import com.Esfe.Biblioteca.Servicios.Interfaces.IRolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class RolService implements IRolService {
     @Autowired
     private IRolRepository rolRepository;

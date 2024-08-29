@@ -29,13 +29,16 @@ public class DatabaseWebSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/dist/**", "/plugins/**").permitAll()
-                .requestMatchers("/", "/privacy", "terms").permitAll()
+                .requestMatchers( "/privacy", "terms").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(form ->form.permitAll());
 
         return http.build();
 
     }
+
+
+
 }
 
 
