@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Multas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5; /* Fondo gris claro para la página */
+        }
+        .container {
+            background-color: #ffffff; /* Fondo blanco para el contenedor */
+            border: 1px solid #d1d1d1; /* Borde gris claro */
+            border-radius: 0.5rem; /* Bordes redondeados */
+            padding: 2rem; /* Espaciado interno del contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del contenedor */
+        }
+        h1 {
+            color: #333; /* Gris oscuro para el título */
+            margin-bottom: 1.5rem; /* Espaciado inferior del título */
+        }
+        .btn-outline-primary {
+            color: #000; /* Texto negro para el botón de nueva multa */
+            border-color: #000; /* Borde negro para el botón de nueva multa */
+            background-color: transparent; /* Fondo transparente para el botón de nueva multa */
+        }
+        .btn-outline-primary:hover {
+            background-color: #000; /* Fondo negro al pasar el ratón por encima */
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            border-color: #000; /* Borde negro al pasar el ratón por encima */
+        }
+        .btn-outline-secondary {
+            color: #000; /* Texto negro para el botón de detalles */
+            background-color: #ffffff; /* Fondo blanco para el botón de detalles */
+            border-color: #6c757d; /* Borde gris oscuro para el botón de detalles */
+        }
+        .btn-outline-secondary:hover {
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            background-color: #6c757d; /* Fondo gris oscuro al pasar el ratón por encima */
+            border-color: #6c757d; /* Borde gris oscuro al pasar el ratón por encima */
+        }
+        .btn-outline-info {
+            color: #000; /* Texto negro para el botón de editar */
+            background-color: #ffffff; /* Fondo blanco para el botón de editar */
+            border-color: #17a2b8; /* Borde azul claro para el botón de editar */
+        }
+        .btn-outline-info:hover {
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            background-color: #17a2b8; /* Fondo azul claro al pasar el ratón por encima */
+            border-color: #17a2b8; /* Borde azul claro al pasar el ratón por encima */
+        }
+        .btn-outline-danger {
+            color: #000; /* Texto negro para el botón de eliminar */
+            background-color: #ffffff; /* Fondo blanco para el botón de eliminar */
+            border-color: #dc3545; /* Borde rojo para el botón de eliminar */
+        }
+        .btn-outline-danger:hover {
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            background-color: #dc3545; /* Fondo rojo al pasar el ratón por encima */
+            border-color: #dc3545; /* Borde rojo al pasar el ratón por encima */
+        }
+        .highlight {
+            background-color: #f0f0f0; /* Gris claro para las filas */
+            border-color: #d1d1d1; /* Borde gris claro para las filas */
+            color: #333; /* Texto gris oscuro para las filas */
+        }
+        .table-header {
+            background-color: #333; /* Negro para el encabezado */
+            color: #fff; /* Texto blanco en el encabezado */
+        }
+        .pagination .page-link {
+            color: #000; /* Texto negro para los enlaces de paginación */
+            border-color: #6c757d; /* Borde gris oscuro para los enlaces de paginación */
+        }
+        .pagination .page-link:hover {
+            background-color: #6c757d; /* Fondo gris oscuro al pasar el ratón por encima */
+            color: #fff; /* Texto blanco al pasar el ratón por encima */
+            border-color: #6c757d; /* Borde gris oscuro al pasar el ratón por encima */
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div th:if="${msg != null}">
+        <script th:inline="javascript">
+            Swal.fire({
+                title: "Confirmación",
+                text: [[${msg}]],
+                icon: "success"
+            });
+        </script>
+    </div>
+    <div th:if="${error != null}">
+        <script th:inline="javascript">
+            Swal.fire({
+                title: "Error",
+                text: [[${error}]],
+                icon: "error"
+            });
+        </script>
+    </div>
+
+    <div class="container mt-5">
+        <h1>Listado de Multas</h1>
+        <a th:href="@{/multas/create}" class="btn btn-outline-primary mb-3">Nueva Multa</a> <!-- Botón con borde negro y fondo transparente -->
+        <table class="table table-striped">
+            <thead>
+            <tr class="table-header">
+                <th>ID</th>
+                <th>Lector</th>
+                <th>Libro</th>
+                <th>Fecha de Multa</th>
+                <th>Monto</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${multas.content}" class="highlight">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.lector.nombre} + ' ' + ${item.lector.apellido}"></td>
+                <td th:text="${item.libro.nombre}"></td>
+                <td th:text="${item.fechaMulta}"></td>
+                <td th:text="${item.monto}"></td>
+                <td th:text="${item.estado}"></td>
+                <td>
+                    <a th:href="@{/multas/details/{id}(id=${item.id})}" class="btn btn-outline-secondary">Detalles</a>
+                    <a th:href="@{/multas/edit/{id}(id=${item.id})}" class="btn btn-outline-info">Editar</a>
+                    <a th:href="@{/multas/remove/{id}(id=${item.id})}" class="btn btn-outline-danger">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <nav class="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item" th:each="pageNumber : ${pageNumbers}">
+                    <a class="page-link" th:href="@{|/multas?page=${pageNumber}|}" th:text="${pageNumber}"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

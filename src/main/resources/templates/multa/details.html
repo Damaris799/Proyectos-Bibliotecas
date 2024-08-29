@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalles del Lector-Libro</title>
+    <title>Detalles de la Multa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
             background-color: #f5f5f5; /* Gris claro para el fondo de la página */
@@ -46,31 +47,36 @@
     </style>
 
 
+
 </head>
 <body>
 <div class="container mt-5">
-    <h1>Detalles del Lector-Libro</h1>
-    <div>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">ID</dt>
-            <dd class="col-sm-10" th:text="${lectorLibro.id}"></dd>
+    <h1 class="mb-4">Detalles de la Multa</h1>
 
-            <dt class="col-sm-2">Lector</dt>
-            <dd class="col-sm-10" th:text="${lectorLibro.lector.nombre} + ' ' + ${lectorLibro.lector.apellido}"></dd>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10" th:text="${multa.id}"></dd>
 
-            <dt class="col-sm-2">Libro</dt>
-            <dd class="col-sm-10" th:text="${lectorLibro.libro.nombre}"></dd>
+        <dt class="col-sm-2">Lector</dt>
+        <dd class="col-sm-10" th:text="${multa.lector.nombre} + ' ' + ${multa.lector.apellido}"></dd>
 
-            <dt class="col-sm-2">Día de Préstamo</dt>
-            <dd class="col-sm-10" th:text="${lectorLibro.diaPrestamo}"></dd>
+        <dt class="col-sm-2">Libro</dt>
+        <dd class="col-sm-10" th:text="${multa.libro.nombre}"></dd>
 
-            <dt class="col-sm-2">Día de Devolución</dt>
-            <dd class="col-sm-10" th:text="${lectorLibro.diaDevolucion}"></dd>
-        </dl>
+        <dt class="col-sm-2">Fecha de Multa</dt>
+        <dd class="col-sm-10" th:text="${multa.fechaMulta}"></dd>
 
-        <a th:href="@{/lectorLibros/edit/{id}(id=${lectorLibro.id})}" class="btn btn-outline-info">Editar</a>
-        <a th:href="@{/lectorLibros}" class="btn btn-outline-secondary">Regresar</a>
+        <dt class="col-sm-2">Monto</dt>
+        <dd class="col-sm-10" th:text="${multa.monto}"></dd>
+
+        <dt class="col-sm-2">Estado</dt>
+        <dd class="col-sm-10" th:text="${multa.estado}"></dd>
+    </dl>
+
+    <div class="d-flex justify-content-start" style="gap: 2rem;">
+        <a th:href="@{/multas/edit/{id}(id=${multa.id})}" class="btn btn-outline-info">Editar</a>
+        <a th:href="@{/multas}" class="btn btn-outline-secondary">Regresar</a>
     </div>
 </div>
 </body>

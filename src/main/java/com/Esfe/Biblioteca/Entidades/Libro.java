@@ -77,5 +77,8 @@ public class Libro {
     public void setAnioPublicado(@Nullable Integer anioPublicado) {
         this.anioPublicado = anioPublicado;
     }
+
+    @OneToMany(mappedBy = "libro")
+    private Set<Multa> multas = new HashSet<>();
 }
 

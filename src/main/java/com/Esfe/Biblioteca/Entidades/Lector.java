@@ -92,5 +92,22 @@ public class Lector {
     public void setTelefono(@Nullable String telefono) {
         this.telefono = telefono;
     }
+
+    @ManyToMany
+    @JoinTable(
+            name = "lectores_multas",
+            joinColumns = @JoinColumn(name = "lector_id"),
+            inverseJoinColumns = @JoinColumn(name = "multa_id")
+    )
+
+    private Set<Multa> Multas = new HashSet<>();
+
+    public Set<Multa> getMultas() {
+        return Multas;
+    }
+
+    public void setMultas(Set<Multa> multas) {
+        Multas = multas;
+    }
 }
 

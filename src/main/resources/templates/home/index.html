@@ -1,47 +1,62 @@
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="/layouts/_mainLayout"  xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="es" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.thymeleaf.org">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Resumen</title>
+    <link rel="stylesheet" href="httpsstackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
 <div layout:fragment="content">
-
-    <h1>Contenido </h1>
-
-    <!-- Total de Libros -->
-    <div class="col-12 col-sm-6 col-md-4">
-        <div class="info-box">
-            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-book"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Total de Libros</span>
-                <span class="info-box-number" th:text="${totalLibros}"></span>
+    <h1>Contenido</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Total de Libros -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-book"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total de Libros</span>
+                        <span class="info-box-number" th:text="${totalLibros}"></span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Total de Lectores -->
-    <div class="col-12 col-sm-6 col-md-4">
-        <div class="info-box mb-3">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Total de Lectores</span>
-                <span class="info-box-number" th:text="${totalLectores}"></span>
+            <!-- Total de Lectores -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total de Lectores</span>
+                        <span class="info-box-number" th:text="${totalLectores}"></span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Total de Prestamos -->
-    <div class="col-12 col-sm-6 col-md-4">
-        <div class="info-box mb-3">
-            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-book-reader"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Total de Préstamos</span>
-                <span class="info-box-number" th:text="${totalPrestamos}"></span>
+            <!-- Total de Préstamos -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-book-reader"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total de Préstamos</span>
+                        <span class="info-box-number" th:text="${totalPrestamos}"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Total de Multas -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-exclamation-triangle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total de Multas</span>
+                        <span class="info-box-number" th:text="${totalMultas}"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- /.row -->
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
-</div>
+
+</body>
 </html>
